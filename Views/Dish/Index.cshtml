@@ -1,0 +1,21 @@
+@model List<Dish>
+<div class="text-center m-5">
+    <div class="text-center m-5">
+        <h1>Welcome to CRUDelicious</h1>
+        @await Html.PartialAsync("_navbar")
+    </div>
+    <div>
+        <div>
+            <p class="fs-3">Check out some recent dishes!</p>
+        </div>
+        
+            <div>
+                <ul class="list-group w-25 mx-auto">
+        @foreach (Dish d in Model)
+        {
+                    <li class="list-group-item"><a asp-action="OneDish" asp-controller="Dish" asp-route-dishesId="@d.DishesId">@d.Name</a> by @d.Chef</li>
+        }
+                </ul>
+            </div>
+    </div>
+</div>

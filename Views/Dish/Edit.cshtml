@@ -1,0 +1,51 @@
+@model Dish
+<div class="container m-5">
+    <h1 class="text-center">Edit @Model.Name</h1>
+    @await Html.PartialAsync("_navbar")
+    <div class="card">
+        <div class="card-body">
+            <form asp-action="UpdateDish" asp-route-dishesId="@Model.DishesId" asp-controller="Dish" method="post">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="m-3">
+                            <label asp-for="Chef"></label>
+                            <input asp-for="Chef" value="@Model.Chef">
+                            <span class="text-danger" asp-validation-for="Chef"></span>
+                        </div>
+                        <div class="m-3">
+                            <label asp-for="Name"></label>
+                            <input asp-for="Name" value="@Model.Name">
+                            <span class="text-danger" asp-validation-for="Name"></span>
+                        </div>
+                        <div class="m-3">
+                            <label asp-for="Calories"></label>
+                            <input asp-for="Calories" value="@Model.Calories">
+                            <span class="text-danger" asp-validation-for="Calories"></span>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="m-3">
+                            <label class="form-label" asp-for="Tastiness"></label>
+                            <select class="form-select" asp-for="Tastiness" value="@Model.Tastiness">
+                                <option value="" hidden>-- Choose Value -- </option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="m-3">
+                            <label asp-for="Description"></label>
+                            <textarea asp-for="Description" cols="30" rows="7" value="@Model.Description"></textarea>
+                            <span class="text-danger" asp-validation-for="Description"></span>
+                        </div>
+                        <button class="btn btn-primary">Edit Dish</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
